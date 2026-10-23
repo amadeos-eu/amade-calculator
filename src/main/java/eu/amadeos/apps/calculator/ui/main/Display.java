@@ -93,6 +93,7 @@ final class Display extends JPanel {
             return new Dimension(fm.stringWidth("0000000000"), fm.getAscent() + fm.getDescent());
         }
 
+        // --8<-- [start:fit]
         @Override
         protected void paintComponent(Graphics g) {
             Graphics2D g2 = (Graphics2D) g.create();
@@ -113,5 +114,6 @@ final class Display extends JPanel {
             g2.drawString(text, getWidth() - in.right - fm.stringWidth(text), y);
             g2.dispose();
         }
+        // --8<-- [end:fit]
     }
 }

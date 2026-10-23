@@ -24,6 +24,7 @@ public final class Evaluator {
         return system.normalize(value);
     }
 
+    // --8<-- [start:expression]
     private BigDecimal expression(int minimum) throws CalculationException {
         BigDecimal left = primary();
         while (next < tokens.size() && tokens.get(next) instanceof Token.Op(Operator operator)
@@ -53,4 +54,5 @@ public final class Evaluator {
             default -> throw new CalculationException(CalculationException.INVALID_INPUT);
         };
     }
+    // --8<-- [end:expression]
 }

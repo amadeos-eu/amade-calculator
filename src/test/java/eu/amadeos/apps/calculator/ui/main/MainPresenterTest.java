@@ -125,6 +125,7 @@ class MainPresenterTest {
         assertFalse(view.display.error());
     }
 
+    // --8<-- [start:programmer]
     @Test
     void programmerShowsEveryBaseAndTheBits() throws Exception {
         start(Settings.DEFAULT.withMode(Mode.PROGRAMMER).withRadix(Radix.HEX).withWord(WordSize.WORD));
@@ -141,6 +142,7 @@ class MainPresenterTest {
         OnEdt.run(() -> presenter.setWordSize(WordSize.BYTE));
         assertEquals("42", view.display.value());
     }
+    // --8<-- [end:programmer]
 
     @Test
     void switchingModesKeepsTheNumber() throws Exception {

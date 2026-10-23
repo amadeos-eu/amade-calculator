@@ -96,6 +96,7 @@ public final class ProgrammerSystem implements NumberSystem {
         return Optional.of(pattern(value).toString(radix.base()).toUpperCase(Locale.ROOT));
     }
 
+    // --8<-- [start:pattern]
     /** The bits of the value as an unsigned number below 2^bits: −1 in a signed byte is 255. */
     public BigInteger pattern(BigDecimal value) {
         return value.toBigInteger().and(mask);
@@ -107,6 +108,7 @@ public final class ProgrammerSystem implements NumberSystem {
         if (signed && bits.testBit(word.bits() - 1)) bits = bits.subtract(modulus);
         return new BigDecimal(bits);
     }
+    // --8<-- [end:pattern]
 
     /** The value with one bit switched, for the bit field. */
     public BigDecimal flipBit(BigDecimal value, int bit) {

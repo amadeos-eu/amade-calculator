@@ -36,6 +36,7 @@ class CalculatorTest {
         return calc;
     }
 
+    // --8<-- [start:exact]
     @Test
     void decimalFractionsAreExact() {
         type("0.1 + 0.2 =");
@@ -44,6 +45,7 @@ class CalculatorTest {
         type("1 / 3 * 3 =");
         assertEquals("1", calc.displayText());
     }
+    // --8<-- [end:exact]
 
     @Test
     void multiplicationBeforeAddition() {
@@ -127,6 +129,7 @@ class CalculatorTest {
         assertEquals("7", calc.displayText());
     }
 
+    // --8<-- [start:percent]
     @Test
     void percentAsOnADeskCalculator() {
         type("200 + 10 % =");
@@ -138,6 +141,7 @@ class CalculatorTest {
         type("50 %");
         assertEquals("0.5", calc.displayText());
     }
+    // --8<-- [end:percent]
 
     @Test
     void negateTypingAndResults() {

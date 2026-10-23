@@ -95,6 +95,7 @@ public final class Calculator {
      * What the expression gives so far. After {@code 2 + 3 ×} that is 3, because the × still applies to the 3;
      * after {@code 2 + 3 × 4 +} it is 14. Inside an open bracket it is the value inside the bracket so far.
      */
+    // --8<-- [start:preview]
     private BigDecimal preview() {
         List<Token> complete = new ArrayList<>(tokens);
         Operator pending = null;
@@ -129,6 +130,7 @@ public final class Calculator {
             return BigDecimal.ZERO;
         }
     }
+    // --8<-- [end:preview]
 
     // ---------------------------------------------------------------- entering numbers
 
@@ -301,6 +303,7 @@ public final class Calculator {
     }
 
     /** Applies a function to the number in the display, or to the bracket just closed. */
+    // --8<-- [start:function]
     public void function(MathFunction function) {
         if (!system.allows(function) || error != null) return;
         try {
@@ -312,11 +315,13 @@ public final class Calculator {
             fail(e);
         }
     }
+    // --8<-- [end:function]
 
     /**
      * The percent key as on a desk calculator: {@code 200 + 10 %} adds 10 % of 200, so it is 220; after × and ÷
      * the percentage is a fraction, {@code 100 × 19 %} is 19.
      */
+    // --8<-- [start:percent]
     private BigDecimal percent(BigDecimal x) throws CalculationException {
         BigDecimal fraction = system.apply(MathFunction.PERCENT, x);
         if (tokens.size() >= 2 && tokens.getLast() instanceof Token.Op(Operator op)
@@ -326,6 +331,7 @@ public final class Calculator {
         }
         return fraction;
     }
+    // --8<-- [end:percent]
 
     /** Takes the number in the display out of the expression, for a function to replace it. */
     private Token.Operand takeOperand() throws CalculationException {
@@ -370,6 +376,7 @@ public final class Calculator {
     }
 
     /** = : computes the expression; pressed again, repeats the last operation on the result. */
+    // --8<-- [start:equals]
     public Optional<TapeEntry> equals() {
         if (error != null) return Optional.empty();
         if (evaluated != null) {
@@ -395,6 +402,7 @@ public final class Calculator {
         }
         return finish(List.copyOf(tokens));
     }
+    // --8<-- [end:equals]
 
     private Optional<TapeEntry> finish(List<Token> expression) {
         try {

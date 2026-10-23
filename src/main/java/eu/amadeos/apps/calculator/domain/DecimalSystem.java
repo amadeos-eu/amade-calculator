@@ -14,6 +14,7 @@ import java.util.Optional;
  * {@code double} and are rounded to 15 digits, which turns sin(30°) into exactly 0.5.
  */
 public final class DecimalSystem implements NumberSystem {
+    // --8<-- [start:precision]
     /** The working precision, that of IEEE 754 decimal128. */
     public static final MathContext CONTEXT = new MathContext(34, RoundingMode.HALF_EVEN);
     /** Digits shown in the display; the rest are kept but not shown. */
@@ -22,6 +23,7 @@ public final class DecimalSystem implements NumberSystem {
     public static final int MAX_ENTRY_DIGITS = 32;
     /** Results beyond 10^±9999 are an overflow (or zero). */
     public static final int MAX_EXPONENT = 9999;
+    // --8<-- [end:precision]
 
     private static final MathContext DOUBLE_DIGITS = new MathContext(15, RoundingMode.HALF_EVEN);
     private static final MathContext SHOWN = new MathContext(DISPLAY_DIGITS, RoundingMode.HALF_UP);
@@ -262,6 +264,7 @@ public final class DecimalSystem implements NumberSystem {
         return normalize(result);
     }
 
+    // --8<-- [start:trigonometric]
     private BigDecimal trigonometric(MathFunction function, BigDecimal x) throws CalculationException {
         double radians;
         if (angles == AngleUnit.DEGREES) {
@@ -285,6 +288,7 @@ public final class DecimalSystem implements NumberSystem {
         if (function != MathFunction.TAN && Math.abs(value) < 1e-15) return BigDecimal.ZERO;
         return fromDouble(value);
     }
+    // --8<-- [end:trigonometric]
 
     private BigDecimal angle(double radians) throws CalculationException {
         return fromDouble(angles == AngleUnit.DEGREES ? Math.toDegrees(radians) : radians);
@@ -322,11 +326,13 @@ public final class DecimalSystem implements NumberSystem {
     }
 
     /** A double result, rounded to the 15 digits a double holds reliably. */
+    // --8<-- [start:from-double]
     static BigDecimal fromDouble(double value) throws CalculationException {
         if (Double.isNaN(value)) throw new CalculationException(CalculationException.INVALID_INPUT);
         if (Double.isInfinite(value)) throw new CalculationException(CalculationException.OVERFLOW);
         return new BigDecimal(value).round(DOUBLE_DIGITS).stripTrailingZeros();
     }
+    // --8<-- [end:from-double]
 
     static boolean isInteger(BigDecimal value) {
         return value.signum() == 0 || value.stripTrailingZeros().scale() <= 0;

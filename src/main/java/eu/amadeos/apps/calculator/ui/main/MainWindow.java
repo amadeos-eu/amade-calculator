@@ -124,6 +124,7 @@ public final class MainWindow extends JFrame implements MainView {
                 presenter.exit();
             }
         });
+        // --8<-- [start:focus]
         // The keys are not focusable, so the display holds the focus; menu shortcuts need a focused component.
         display.setFocusable(true);
         addWindowFocusListener(new WindowAdapter() {
@@ -132,6 +133,7 @@ public final class MainWindow extends JFrame implements MainView {
                 if (getFocusOwner() == null || getFocusOwner() == MainWindow.this) display.requestFocusInWindow();
             }
         });
+        // --8<-- [end:focus]
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(keyboard);
     }
 
@@ -173,6 +175,7 @@ public final class MainWindow extends JFrame implements MainView {
     }
     // --8<-- [end:keyboard]
 
+    // --8<-- [start:flash]
     /** Shows a key as pressed for a moment when it was typed. */
     private void flash(Key key) {
         for (JButton button : keys.getOrDefault(key, List.of())) {
@@ -189,6 +192,7 @@ public final class MainWindow extends JFrame implements MainView {
             }
         }
     }
+    // --8<-- [end:flash]
 
     // ---------------------------------------------------------------- layout
 
@@ -324,6 +328,7 @@ public final class MainWindow extends JFrame implements MainView {
         String tip = "key." + key.id() + ".tip";
         if (msg.has(tip)) button.setToolTipText(msg.get(tip));
         button.getAccessibleContext().setAccessibleName(msg.has(tip) ? msg.get(tip) : label);
+        // --8<-- [start:key-colours]
         AmadeUI.style(button, (b, theme) -> {
             switch (key.kind()) {
                 case DIGIT -> b.setBackground(theme.highlight());
@@ -335,6 +340,7 @@ public final class MainWindow extends JFrame implements MainView {
                 default -> b.setBackground(theme.base());
             }
         });
+        // --8<-- [end:key-colours]
         button.addActionListener(e -> presenter.press(key));
         keys.computeIfAbsent(key, k -> new ArrayList<>()).add(button);
         return button;
