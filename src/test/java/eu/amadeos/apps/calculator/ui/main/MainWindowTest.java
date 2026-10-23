@@ -92,6 +92,26 @@ class MainWindowTest {
         }
     }
 
+    // --8<-- [start:enter-once]
+    /** A typed key lights up its button; releasing the button must not press it a second time. */
+    @Test
+    void enterComputesOnce() throws Exception {
+        open(Settings.DEFAULT);
+        try {
+            OnEdt.run(() -> window.setVisible(true));
+            for (char c : "2+3".toCharArray()) type(c);
+            press(KeyEvent.VK_ENTER);
+            Thread.sleep(400);
+            OnEdt.run(() -> {
+                assertEquals("5", window.display().valueText());
+                assertEquals(1, presenter.tape().size());
+            });
+        } finally {
+            close();
+        }
+    }
+    // --8<-- [end:enter-once]
+
     @Test
     void scientificAndThePaperTape() throws Exception {
         open(Settings.DEFAULT.withMode(Mode.SCIENTIFIC).withPaperTape(true));
