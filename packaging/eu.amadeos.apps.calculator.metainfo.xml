@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AppStream metadata of amade-calculator, installed as /usr/share/metainfo/eu.amadeos.apps.calculator.metainfo.xml.
+     amadeOS Software shows it for the installed package; a repository's appstream-generator reads it too. -->
+<component type="desktop-application">
+  <id>eu.amadeos.apps.calculator</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>EUPL-1.2</project_license>
+
+  <name>amadeOS Calculator</name>
+  <name xml:lang="de">amadeOS Rechner</name>
+  <name xml:lang="fr">amadeOS Calculatrice</name>
+  <name xml:lang="es">amadeOS Calculadora</name>
+  <name xml:lang="it">amadeOS Calcolatrice</name>
+
+  <summary>Calculate with basic, scientific and programmer functions</summary>
+  <summary xml:lang="de">Rechnen mit Grund-, wissenschaftlichen und Programmierer-Funktionen</summary>
+  <summary xml:lang="fr">Calculer avec des fonctions standard, scientifiques et pour programmeurs</summary>
+  <summary xml:lang="es">Calcular con funciones básicas, científicas y de programador</summary>
+  <summary xml:lang="it">Calcolare con funzioni standard, scientifiche e per programmatori</summary>
+
+  <description>
+    <p>amade-calculator is the calculator of the amadeOS desktop. It computes exactly with decimal fractions, so 0.1 + 0.2 is 0.3, and follows the rules of precedence: 2 + 3 × 4 is 14.</p>
+    <p xml:lang="de">amade-calculator ist der Rechner des amadeOS-Desktops. Er rechnet exakt mit Dezimalzahlen, 0,1 + 0,2 ist also 0,3, und beachtet Punkt vor Strich: 2 + 3 × 4 ist 14.</p>
+    <p xml:lang="fr">amade-calculator est la calculatrice du bureau amadeOS. Elle calcule exactement avec des nombres décimaux, 0,1 + 0,2 donne donc 0,3, et respecte la priorité des opérations : 2 + 3 × 4 donne 14.</p>
+    <p xml:lang="es">amade-calculator es la calculadora del escritorio amadeOS. Calcula de forma exacta con números decimales, así que 0,1 + 0,2 es 0,3, y respeta la prioridad de las operaciones: 2 + 3 × 4 es 14.</p>
+    <p xml:lang="it">amade-calculator è la calcolatrice del desktop amadeOS. Calcola in modo esatto con i numeri decimali, quindi 0,1 + 0,2 fa 0,3, e rispetta la precedenza delle operazioni: 2 + 3 × 4 fa 14.</p>
+    <ul>
+      <li>Basic mode with memory, percent and an optional paper tape</li>
+      <li xml:lang="de">Einfacher Modus mit Speicher, Prozent und einem Papierstreifen auf Wunsch</li>
+      <li xml:lang="fr">Mode standard avec mémoire, pourcentage et rouleau de papier en option</li>
+      <li xml:lang="es">Modo básico con memoria, porcentaje y rollo de papel opcional</li>
+      <li xml:lang="it">Modalità standard con memoria, percentuale e rotolo di carta opzionale</li>
+      <li>Scientific mode with brackets, powers, roots, logarithms and trigonometry in degrees or radians</li>
+      <li xml:lang="de">Wissenschaftlicher Modus mit Klammern, Potenzen, Wurzeln, Logarithmen und Trigonometrie in Grad oder Bogenmaß</li>
+      <li xml:lang="fr">Mode scientifique avec parenthèses, puissances, racines, logarithmes et trigonométrie en degrés ou en radians</li>
+      <li xml:lang="es">Modo científico con paréntesis, potencias, raíces, logaritmos y trigonometría en grados o radianes</li>
+      <li xml:lang="it">Modalità scientifica con parentesi, potenze, radici, logaritmi e trigonometria in gradi o radianti</li>
+      <li>Programmer mode with HEX, DEC, OCT and BIN, word sizes from 8 to 64 bits, bit operations and a clickable bit field</li>
+      <li xml:lang="de">Programmierer-Modus mit HEX, DEC, OCT und BIN, Wortbreiten von 8 bis 64 Bit, Bit-Operationen und einem anklickbaren Bitfeld</li>
+      <li xml:lang="fr">Mode programmeur avec HEX, DEC, OCT et BIN, mots de 8 à 64 bits, opérations sur les bits et un champ de bits cliquable</li>
+      <li xml:lang="es">Modo programador con HEX, DEC, OCT y BIN, palabras de 8 a 64 bits, operaciones de bits y un campo de bits que se puede pulsar</li>
+      <li xml:lang="it">Modalità programmatore con HEX, DEC, OCT e BIN, parole da 8 a 64 bit, operazioni sui bit e un campo di bit cliccabile</li>
+      <li>Everything also from the keyboard; copy and paste of numbers</li>
+      <li xml:lang="de">Alles auch über die Tastatur; Zahlen kopieren und einfügen</li>
+      <li xml:lang="fr">Tout aussi au clavier ; copier et coller des nombres</li>
+      <li xml:lang="es">Todo también con el teclado; copiar y pegar números</li>
+      <li xml:lang="it">Tutto anche dalla tastiera; copia e incolla di numeri</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">amade-calculator.desktop</launchable>
+  <icon type="stock">amade-calculator</icon>
+  <categories>
+    <category>Office</category>
+    <category>Calculator</category>
+    <category>Utility</category>
+  </categories>
+
+  <url type="homepage">https://github.com/datazuul/amade-calculator</url>
+  <url type="bugtracker">https://github.com/datazuul/amade-calculator/issues</url>
+  <developer id="eu.amadeos">
+    <name>amadeOS Project</name>
+  </developer>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Basic mode with the paper tape</caption>
+      <caption xml:lang="de">Einfacher Modus mit dem Papierstreifen</caption>
+      <caption xml:lang="fr">Mode standard avec le rouleau de papier</caption>
+      <caption xml:lang="es">Modo básico con el rollo de papel</caption>
+      <caption xml:lang="it">Modalità standard con il rotolo di carta</caption>
+      <image>https://raw.githubusercontent.com/datazuul/amade-calculator/main/docs/screenshots/amade-calculator.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Scientific mode</caption>
+      <caption xml:lang="de">Wissenschaftlicher Modus</caption>
+      <caption xml:lang="fr">Mode scientifique</caption>
+      <caption xml:lang="es">Modo científico</caption>
+      <caption xml:lang="it">Modalità scientifica</caption>
+      <image>https://raw.githubusercontent.com/datazuul/amade-calculator/main/docs/screenshots/amade-calculator-scientific.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Programmer mode with the bit field</caption>
+      <caption xml:lang="de">Programmierer-Modus mit dem Bitfeld</caption>
+      <caption xml:lang="fr">Mode programmeur avec le champ de bits</caption>
+      <caption xml:lang="es">Modo programador con el campo de bits</caption>
+      <caption xml:lang="it">Modalità programmatore con il campo di bit</caption>
+      <image>https://raw.githubusercontent.com/datazuul/amade-calculator/main/docs/screenshots/amade-calculator-programmer.png</image>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <binary>amade-calculator</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+</component>

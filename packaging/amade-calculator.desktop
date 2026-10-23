@@ -1,0 +1,24 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=amadeOS Calculator
+Name[de]=amadeOS Rechner
+Name[fr]=amadeOS Calculatrice
+Name[es]=amadeOS Calculadora
+Name[it]=amadeOS Calcolatrice
+GenericName=Calculator
+GenericName[de]=Taschenrechner
+GenericName[fr]=Calculatrice
+GenericName[es]=Calculadora
+GenericName[it]=Calcolatrice
+Comment=Calculate with basic, scientific and programmer functions
+Comment[de]=Rechnen mit Grund-, wissenschaftlichen und Programmierer-Funktionen
+Comment[fr]=Calculer avec des fonctions standard, scientifiques et pour programmeurs
+Comment[es]=Calcular con funciones básicas, científicas y de programador
+Comment[it]=Calcolare con funzioni standard, scientifiche e per programmatori
+Icon=amade-calculator
+Exec=/usr/bin/amade-calculator
+Terminal=false
+Categories=Office;Calculator;Utility;
+Keywords=calculator;calculate;math;scientific;programmer;hex;binary;percent;Rechner;
+StartupNotify=true
