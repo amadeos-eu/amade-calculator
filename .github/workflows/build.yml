@@ -1,8 +1,10 @@
 name: Build
 
+# develop builds X.Y.Z-dev.N, release X.Y.Z-pre.N and main the release X.Y.Z, which the release job
+# tags and publishes with the package (see CONTRIBUTING.md of datazuul/amadeos, "Commits and versions").
 on:
   push:
-    branches: [main]
+    branches: [develop, release, main]
   pull_request:
 
 permissions:
@@ -11,8 +13,20 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      channel: ${{ steps.version.outputs.channel }}
     steps:
+      # --8<-- [start:version]
       - uses: actions/checkout@v7
+        with:
+          # The version is computed from the history since the last release tag.
+          fetch-depth: 0
+      - id: version
+        uses: datazuul/amadeos/.github/actions/version@main
+        with:
+          metainfo: packaging/eu.amadeos.apps.calculator.metainfo.xml
+      # --8<-- [end:version]
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
@@ -31,8 +45,10 @@ jobs:
           echo "Tests run: $count, skipped: $skipped"
           test "$count" -ge 50
           test "$skipped" -eq 0
+      # --8<-- [start:package]
       - name: Package
-        run: ./gradlew jar deb --no-daemon
+        run: ./gradlew jar deb --no-daemon -PappVersion=${{ steps.version.outputs.version }}
+      # --8<-- [end:package]
       - name: Check the fat jar and the package
         run: |
           jar=$(ls build/libs/amade-calculator-*.jar)
@@ -47,6 +63,12 @@ jobs:
                    usr/share/metainfo/eu.amadeos.apps.calculator.metainfo.xml usr/share/doc/amade-calculator/copyright; do
             grep -q "$f" contents.txt || { echo "missing in the package: $f"; exit 1; }
           done
+          test "$(dpkg-deb --field "$deb" Version)" = "${{ steps.version.outputs.deb-version }}"
+          unzip -p "$jar" META-INF/MANIFEST.MF | grep -q "Implementation-Version: ${{ steps.version.outputs.version }}"
+      - name: Check the AppStream metadata
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q appstream
+          appstreamcli validate --no-net packaging/eu.amadeos.apps.calculator.metainfo.xml
       - name: Upload the Debian package
         uses: actions/upload-artifact@v7
         with:
@@ -59,3 +81,36 @@ jobs:
         with:
           name: test-reports
           path: build/reports/tests/test
+
+  # --8<-- [start:release]
+  # Only on main, after the release branch was promoted: tag vX.Y.Z and publish the GitHub Release.
+  release:
+    needs: test
+    if: needs.test.outputs.channel == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v8
+        with:
+          name: amade-calculator-deb
+          path: dist
+      - uses: datazuul/amadeos/.github/actions/release@main
+        with:
+          version: ${{ needs.test.outputs.version }}
+          files: dist/*.deb
+  # --8<-- [end:release]
+
+  # --8<-- [start:commits]
+  commits:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: datazuul/amadeos/.github/actions/check-commits@main
+  # --8<-- [end:commits]
