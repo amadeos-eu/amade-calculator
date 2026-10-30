@@ -1,6 +1,6 @@
 # amade-calculator
 
-**amade-calculator** is the calculator of the [amadeOS](https://github.com/datazuul/amadeos) desktop: a desk calculator with a paper tape, a scientific calculator and a programmer's calculator in one window. Built like the other amadeOS applications.
+**amade-calculator** is the calculator of the [amadeOS](https://github.com/amadeos-eu/amadeos) desktop: a desk calculator with a paper tape, a scientific calculator and a programmer's calculator in one window. Built like the other amadeOS applications.
 
 ![License](https://img.shields.io/badge/license-EUPL--1.2-blue)
 ![Java](https://img.shields.io/badge/Java-25-orange)
@@ -24,7 +24,7 @@
 - **Copy and paste** (Ctrl+C, Ctrl+V): copies the number without grouping; pastes numbers as people write them (`1,234.5`, `1.234,5`, `1 234,5`, `0xFF`, `0b1010`).
 - Digit grouping and the decimal separator follow the language; grouping can be switched off (*View → Digit Grouping*).
 - Five languages (English, Deutsch, Français, Español, Italiano), following the amadeOS desktop language; *Options → Language* overrides it.
-- Theme colours and Motif look from [amade-commons](https://github.com/datazuul/amade-commons).
+- Theme colours and Motif look from [amade-commons](https://github.com/amadeos-eu/amade-commons).
 
 ## Architecture
 
