@@ -56,8 +56,8 @@
     <category>Utility</category>
   </categories>
 
-  <url type="homepage">https://github.com/datazuul/amade-calculator</url>
-  <url type="bugtracker">https://github.com/datazuul/amade-calculator/issues</url>
+  <url type="homepage">https://github.com/amadeos-eu/amade-calculator</url>
+  <url type="bugtracker">https://github.com/amadeos-eu/amade-calculator/issues</url>
   <developer id="eu.amadeos">
     <name>amadeOS Project</name>
   </developer>
@@ -69,7 +69,7 @@
       <caption xml:lang="fr">Mode standard avec le rouleau de papier</caption>
       <caption xml:lang="es">Modo básico con el rollo de papel</caption>
       <caption xml:lang="it">Modalità standard con il rotolo di carta</caption>
-      <image>https://raw.githubusercontent.com/datazuul/amade-calculator/main/docs/screenshots/amade-calculator.png</image>
+      <image>https://raw.githubusercontent.com/amadeos-eu/amade-calculator/main/docs/screenshots/amade-calculator.png</image>
     </screenshot>
     <screenshot>
       <caption>Scientific mode</caption>
@@ -77,7 +77,7 @@
       <caption xml:lang="fr">Mode scientifique</caption>
       <caption xml:lang="es">Modo científico</caption>
       <caption xml:lang="it">Modalità scientifica</caption>
-      <image>https://raw.githubusercontent.com/datazuul/amade-calculator/main/docs/screenshots/amade-calculator-scientific.png</image>
+      <image>https://raw.githubusercontent.com/amadeos-eu/amade-calculator/main/docs/screenshots/amade-calculator-scientific.png</image>
     </screenshot>
     <screenshot>
       <caption>Programmer mode with the bit field</caption>
@@ -85,7 +85,7 @@
       <caption xml:lang="fr">Mode programmeur avec le champ de bits</caption>
       <caption xml:lang="es">Modo programador con el campo de bits</caption>
       <caption xml:lang="it">Modalità programmatore con il campo di bit</caption>
-      <image>https://raw.githubusercontent.com/datazuul/amade-calculator/main/docs/screenshots/amade-calculator-programmer.png</image>
+      <image>https://raw.githubusercontent.com/amadeos-eu/amade-calculator/main/docs/screenshots/amade-calculator-programmer.png</image>
     </screenshot>
   </screenshots>
 
